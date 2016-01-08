@@ -1,0 +1,24 @@
+{
+  "variables": {
+    "digitalocean_api_token": "{{env  `DIGITALOCEAN_API_TOKEN`}}"
+  },
+
+  "builders": [
+    {
+      "type": "digitalocean",
+      "api_token": "{{user `digitalocean_api_token`}}",
+      "image": "debian-8-x64",
+      "region": "nyc3",
+      "size": "512mb",
+      "droplet_name": "dkee-devbox",
+      "snapshot_name": "dkee-devbox-{{timestamp}}"
+    }
+  ],
+
+  "provisioners": [
+    {
+      "type": "shell",
+      "script": "provision.sh"
+    }
+  ]
+}

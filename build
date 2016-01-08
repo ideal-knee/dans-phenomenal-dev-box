@@ -1,0 +1,3 @@
+#! /usr/bin/env bash
+
+packer validate devbox.json && packer build devbox.json
